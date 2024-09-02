@@ -1,4 +1,3 @@
-// 6.js
 
 // Get elements from the DOM
 const rock = document.getElementById('rock');
@@ -36,19 +35,19 @@ function determineWinner(playerChoice, computerChoice) {
 }
 
 // Function to update the score
-function updateScore(winner) {
+function updateScore(winner, computerChoice) {
     if (winner === 'player') {
         playerScore++;
         yourScore.textContent = playerScore;
-        message.textContent = 'You win!';
+        message.textContent = `Computer choose ${computerChoice},You win!`;
         message.style.color = 'green';
     } else if (winner === 'computer') {
         computerScore++;
         compScore.textContent = computerScore;
-        message.textContent = 'Computer wins!';
+        message.textContent = `Computer choose ${computerChoice}, Computer Wins`;
         message.style.color = 'red';
     } else {
-        message.textContent = 'It\'s a draw!';
+        message.textContent =`Computer choose ${computerChoice}, It's a draw!`;
         message.style.color = 'orange';
     }
 }
@@ -57,7 +56,7 @@ function updateScore(winner) {
 function playGame(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = determineWinner(playerChoice, computerChoice);
-    updateScore(winner);
+    updateScore(winner, computerChoice);
 }
 
 // Add event listeners to each choice
